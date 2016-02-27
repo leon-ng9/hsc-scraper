@@ -20,7 +20,6 @@ for href in hrefs:
     soup = BeautifulSoup(html.content)
 
     for table_row in soup.find_all("tr"):
-        i = 1
         for data in table_row.find_all("td"):
             if str(data.text)[1].isdigit():
                 # print results in a nice format
