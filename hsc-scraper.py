@@ -21,9 +21,9 @@ for href in hrefs:
 
     for table_row in soup.find_all("tr"):
         for data in table_row.find_all("td"):
-            if str(data.text)[1].isdigit():
+            if data.text.encode('utf-8')[1].isdigit():
                 # print results in a nice format
-                print re.sub(r'\b\s(\d{5})\b',r'\n\1',str(data.text)[1:]) + "\n"
+                print re.sub(r'\s(\d{5}) - ',r'\n',data.text.encode('utf-8')[9:]) + "\n"
             else:
                 # print name and school
                 print data.text
